@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عبد الله العزري | طالب اقتصاد متخصص في الاقتصاد الزراعي والبيئي</title>
+    <meta name="description"
+        content="عبد الله العزري، طالب في السنة الرابعة تخصص اقتصاد بجامعة السلطان قابوس، متخصص في الاقتصاد الزراعي والبيئي والتحليل الاقتصادي التطبيقي.">
+    <meta name="keywords" content="اقتصاد، زراعي، بيئي، تحليل بيانات، Excel، جامعة السلطان قابوس، عمان">
+    <meta name="author" content="عبد الله العزري">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+        }
+
+        /* RTL Specific Adjustments */
+        html[dir="rtl"] .timeline::before {
+            right: 30px;
+            left: auto;
+        }
+
+        html[dir="rtl"] .timeline-item {
+            border-right: 8px solid var(--primary);
+            border-left: none;
+        }
+
+        html[dir="rtl"] .timeline-item::before {
+            right: -40px;
+            left: auto;
+        }
+
+        html[dir="rtl"] .skill-percent {
+            text-align: left;
+        }
+
+        html[dir="rtl"] .hero-header-image:hover img {
+            transform: rotateY(-10deg) rotateX(5deg) scale(1.05);
+        }
+
+        html[dir="rtl"] .contact-item:hover {
+            transform: translateX(-10px);
+        }
+
+        html[dir="rtl"] .footer-links a:hover {
+            transform: translateX(-5px);
+        }
+
+        html[dir="rtl"] .back-to-top {
+            right: auto;
+            left: 30px;
+        }
+
+        html[dir="rtl"] .theme-toggle {
+            right: auto;
+            left: 30px;
+        }
+
+        @media (max-width: 768px) {
+            html[dir="rtl"] .timeline::before {
+                right: 20px;
+            }
+
+            html[dir="rtl"] .timeline-item::before {
+                right: -30px;
+            }
+
+            html[dir="rtl"] .back-to-top {
+                left: 20px;
+            }
+
+            html[dir="rtl"] .theme-toggle {
+                left: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="#home" class="logo">ع</a>
+                <span class="logo-text">عبد الله العزري</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">الرئيسية</a></li>
+                <li><a href="#about">حولي</a></li>
+                <li><a href="#education">التعليم</a></li>
+                <li><a href="#skills">المهارات</a></li>
+                <li><a href="#projects">المشاريع</a></li>
+                <li><a href="#contact" class="nav-cta">تواصل معي</a></li>
+                <li><a href="index.html" class="lang-switch">
+                        <i class="fas fa-globe"></i> English
+                    </a></li>
+            </ul>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>طالب اقتصاد</span>
+                    </div>
+                    <h1 class="hero-title">عبد الله <span class="highlight">العزري</span></h1>
+                    <h2 class="hero-subtitle">الاقتصاد الزراعي والبيئي</h2>
+                    <p class="hero-description">
+                        طالب في السنة الرابعة تخصص اقتصاد بجامعة السلطان قابوس، أركز على التحليل الاقتصادي التطبيقي،
+                        سلوك المستهلك، والاستدامة. أحول البيانات إلى رؤى قابلة للتنفيذ لتحديات القطاع الزراعي والبيئي.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> تواصل معي
+                        </a>
+                        <a href="#projects" class="btn btn-secondary">
+                            <i class="fas fa-briefcase"></i> عرض المشاريع
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <h3>4<sup>th</sup></h3>
+                            <p>سنة دراسية</p>
+                        </div>
+                        <div class="stat">
+                            <h3>5+</h3>
+                            <p>مشاريع بحثية</p>
+                        </div>
+                        <div class="stat">
+                            <h3>95%</h3>
+                            <p>إتقان Excel</p>
+                        </div>
+                        <div class="stat">
+                            <h3>2</h3>
+                            <p>لغات</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-header-image">
+                        <img src="profile.jpg" alt="عبد الله العزري - طالب اقتصاد" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">نبذة عني</span>
+                <h2 class="section-title">الملف المهني</h2>
+                <p>طالب اقتصاد متحمس متخصص في الجوانب الزراعية والبيئية، مع تركيز قوي على التحليل التطبيقي وحل المشكلات.
+                </p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>التركيز التعليمي</h3>
+                    <p>طالب اقتصاد في السنة الرابعة متخصص في الاقتصاد الزراعي والبيئي بجامعة السلطان قابوس.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>الاهتمامات البحثية</h3>
+                    <p>سلوك المستهلك، تأثيرات الأسعار، تأثيرات الدخل، والعوامل البيئية على الإنتاج الزراعي.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>الخبرة التقنية</h3>
+                    <p>بارع في Excel لتحليل البيانات، وتصورها، والنمذجة الاقتصادية لسيناريوهات العالم الحقيقي.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>الرسالة</h3>
+                    <p>تحويل المعرفة الاقتصادية إلى رؤى عملية تدعم الاستدامة واتخاذ القرارات المستنيرة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section education">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">الرحلة الأكاديمية</span>
+                <h2 class="section-title">التعليم والتركيز</h2>
+                <p>مسيرتي التعليمية وتخصصاتي البحثية في مجال الاقتصاد الزراعي والبيئي.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-year">2020 - 2024</div>
+                    <div class="timeline-content">
+                        <h3>بكالوريوس الاقتصاد</h3>
+                        <h4>جامعة السلطان قابوس، سلطنة عمان</h4>
+                        <p class="status-badge">
+                            <i class="fas fa-calendar-check"></i> السنة الرابعة • التخرج المتوقع 2024
+                        </p>
+                        <div class="specialization">
+                            <h5>مجالات التخصص الرئيسية:</h5>
+                            <div class="tags">
+                                <span class="tag">الاقتصاد الزراعي</span>
+                                <span class="tag">الاقتصاد البيئي</span>
+                                <span class="tag">التحليل الاقتصادي التطبيقي</span>
+                                <span class="tag">اقتصاديات الموارد</span>
+                                <span class="tag">الاقتصاد القياسي</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-year">التركيز البحثي</div>
+                    <div class="timeline-content">
+                        <h3>مجالات البحث والتطبيق</h3>
+                        <ul class="focus-points">
+                            <li><i class="fas fa-check-circle"></i> مرونة الأسعار وتحليل الطلب في القطاع الزراعي</li>
+                            <li><i class="fas fa-check-circle"></i> تقييم الأثر البيئي للسياسات الزراعية</li>
+                            <li><i class="fas fa-check-circle"></i> تحسين كفاءة الإنتاج الزراعي</li>
+                            <li><i class="fas fa-check-circle"></i> إدارة الموارد الطبيعية المستدامة</li>
+                            <li><i class="fas fa-check-circle"></i> تحليل سلوك المستهلك في الأسواق الزراعية</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">القدرات</span>
+                <h2 class="section-title">المهارات التقنية والمهنية</h2>
+                <p>مجموعة المهارات التقنية والتحليلية التي طورتها خلال مسيرتي الأكاديمية والبحثية.</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-desktop"></i>
+                        <h3>المهارات التقنية</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Microsoft Excel المتقدم</span>
+                            <div class="skill-level">
+                                <div class="level-bar" style="width: 95%"></div>
+                            </div>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">تحليل البيانات والإحصاء</span>
+                            <div class="skill-level">
+                                <div class="level-bar" style="width: 88%"></div>
+                            </div>
+                            <span class="skill-percent">88%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">النمذجة الاقتصادية</span>
+                            <div class="skill-level">
+                                <div class="level-bar" style="width: 85%"></div>
+                            </div>
+                            <span class="skill-percent">85%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">أدوات الذكاء الاصطناعي للبحث</span>
+                            <div class="skill-level">
+                                <div class="level-bar" style="width: 80%"></div>
+                            </div>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">تطوير الويب (HTML/CSS)</span>
+                            <div class="skill-level">
+                                <div class="level-bar" style="width: 75%"></div>
+                            </div>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-brain"></i>
+                        <h3>المهارات التحليلية</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">التحليل الاقتصادي التطبيقي</span>
+                        <span class="skill-tag">تفسير البيانات</span>
+                        <span class="skill-tag">التفكير الإحصائي</span>
+                        <span class="skill-tag">حل المشكلات المعقدة</span>
+                        <span class="skill-tag">منهجية البحث العلمي</span>
+                        <span class="skill-tag">التفكير النقدي</span>
+                        <span class="skill-tag">اتخاذ القرارات المستندة إلى البيانات</span>
+                        <span class="skill-tag">النمذجة الكمية</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-users"></i>
+                        <h3>المهارات الشخصية</h3>
+                    </div>
+                    <div class="skill-tags">
+                        <span class="skill-tag">التواصل الأكاديمي</span>
+                        <span class="skill-tag">إدارة الوقت الفعالة</span>
+                        <span class="skill-tag">التعلم الذاتي المستمر</span>
+                        <span class="skill-tag">الاهتمام بالتفاصيل الدقيقة</span>
+                        <span class="skill-tag">العمل الجماعي والتعاون</span>
+                        <span class="skill-tag">كتابة التقارير البحثية</span>
+                        <span class="skill-tag">العرض والتقديم</span>
+                        <span class="skill-tag">القدرة على التكيف</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">البحوث الأكاديمية</span>
+                <h2 class="section-title">المشاريع الأكاديمية</h2>
+                <p>مشاريعي البحثية التي تعكس اهتماماتي في الاقتصاد الزراعي والبيئي وسلوك المستهلك.</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="project-category">تحليل اقتصادي</div>
+                    </div>
+                    <h3 class="project-title">تأثير السعر على الطلب الزراعي</h3>
+                    <p class="project-description">
+                        تحليل متعمق لتأثير تغيرات الأسعار على الطلب على المنتجات الزراعية باستخدام Excel،
+                        بما في ذلك تصور البيانات المتقدم والتفسير الاقتصادي للمرونة السعرية والمرونة الدخلية.
+                    </p>
+                    <div class="project-tech">
+                        <span>Excel المتقدم</span>
+                        <span>تصور البيانات</span>
+                        <span>النمذجة الاقتصادية</span>
+                        <span>التحليل الإحصائي</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="project-category">دراسة بيئية</div>
+                    </div>
+                    <h3 class="project-title">العوامل البيئية والإنتاج الزراعي</h3>
+                    <p class="project-description">
+                        دراسة العلاقة بين العوامل البيئية (درجة الحرارة، الرطوبة، الظروف الجوية)
+                        ونمو النبات/الإنتاج الزراعي باستخدام البيانات التقديرية والملاحظات الميدانية المتقدمة.
+                    </p>
+                    <div class="project-tech">
+                        <span>البحث الميداني</span>
+                        <span>جمع البيانات</span>
+                        <span>تحليل الارتباط</span>
+                        <span>اقتصاديات البيئة</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="project-category">تحليل البيانات</div>
+                    </div>
+                    <h3 class="project-title">تحليل سلوك المستهلك</h3>
+                    <p class="project-description">
+                        مشروع بحثي متقدم يحلل أنماط اتخاذ القرار لدى المستهلك في الأسواق الزراعية،
+                        مع التركيز على حساسية السعر وهياكل التفضيل والعوامل المؤثرة في القرارات الشرائية.
+                    </p>
+                    <div class="project-tech">
+                        <span>أبحاث السوق</span>
+                        <span>الاقتصاد السلوكي</span>
+                        <span>تحليل Excel</span>
+                        <span>استطلاعات الرأي</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Personal Projects Showcase -->
+            <div class="projects-showcase">
+                <div class="section-header">
+                    <span class="section-label">التطوير</span>
+                    <h2 class="section-title">المشاريع الشخصية</h2>
+                    <p>مشاريعي التطويرية التي تعكس مهاراتي التقنية وقدرتي على التعلم والتطبيق.</p>
+                </div>
+
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="project-category">تطوير الويب</div>
+                        </div>
+                        <h3 class="project-title">الموقع الشخصي التفاعلي</h3>
+                        <p class="project-description">
+                            تصميم وتطوير موقع شخصي متكامل باستخدام HTML، CSS، وJavaScript لعرض الخلفية الأكاديمية
+                            والمهارات والمشاريع.
+                            يركز الموقع على تجربة مستخدم استثنائية وتصميم متجاوب عصري.
+                        </p>
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>تصميم متجاوب</span>
+                            <span>تجربة المستخدم</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-microphone"></i>
+                            </div>
+                            <div class="project-category">تطبيق أندرويد</div>
+                        </div>
+                        <h3 class="project-title">تطبيق تحويل الصوت إلى نص</h3>
+                        <p class="project-description">
+                            تطوير تطبيق أندرويد متقدم يحول المداخلات الصوتية إلى نص قابل للاستخراج باستخدام تقنيات
+                            التعرف على الكلام الحديثة.
+                            يتضمن ميزات متقدمة مثل التعديل على النص والحفظ والنسخ التلقائي.
+                        </p>
+                        <div class="project-tech">
+                            <span>أندرويد</span>
+                            <span>التعرف على الكلام</span>
+                            <span>واجهة المستخدم</span>
+                            <span>الإنتاجية</span>
+                            <span>معالجة اللغة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Languages Section -->
+    <section class="section languages">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">التواصل</span>
+                <h2 class="section-title">إجادة اللغات</h2>
+                <p>مهاراتي اللغوية التي تمكنني من العمل والبحث في بيئات متعددة الثقافات.</p>
+            </div>
+            <div class="languages-container">
+                <div class="language-card">
+                    <div class="language-header">
+                        <div class="flag">🇴🇲</div>
+                        <h3>اللغة العربية</h3>
+                    </div>
+                    <p class="language-level">اللغة الأم</p>
+                    <div class="language-skills">
+                        <span>كتابة أكاديمية</span>
+                        <span>عرض وتقديم</span>
+                        <span>بحث علمي</span>
+                        <span>تواصل مهني</span>
+                    </div>
+                </div>
+
+                <div class="language-card">
+                    <div class="language-header">
+                        <div class="flag">🇬🇧</div>
+                        <h3>اللغة الإنجليزية</h3>
+                    </div>
+                    <p class="language-level">B1 - المستوى المتوسط</p>
+                    <div class="language-skills">
+                        <span>قراءة الأبحاث</span>
+                        <span>كتابة أكاديمية</span>
+                        <span>تواصل أساسي</span>
+                        <span>فهم المحتوى</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">تواصل معي</span>
+                <h2 class="section-title">دعنا نتعاون</h2>
+                <p>أهتم بمناقشة فرص التدريب، المشاريع البحثية، أو أي فرص في مجال الاقتصاد الزراعي والبيئي.</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>هل تبحث عن باحث متحمس في الاقتصاد الزراعي؟</h3>
+                    <p>أنا منفتح لمناقشة فرص التدريب، المشاريع البحثية المشتركة، أو أي فرص في مجالات الاقتصاد الزراعي
+                        والبيئي وتحليل البيانات.</p>
+
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>الهاتف (عمان)</h4>
+                                <p>+968 9642 9202</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>البريد الإلكتروني</h4>
+                                <p>alazriabdullah829@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div>
+                                <h4>المؤسسة التعليمية</h4>
+                                <p>جامعة السلطان قابوس</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>الموقع الجغرافي</h4>
+                                <p>مسقط، سلطنة عمان</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div>
+                                <h4>الحالة المهنية</h4>
+                                <p>متاح للفرص والتدريب</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://linkedin.com" class="social-link" target="_blank" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://twitter.com" class="social-link" target="_blank" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="mailto:alazriabdullah829@gmail.com" class="social-link" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://github.com" class="social-link" target="_blank" aria-label="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل *</label>
+                            <input type="text" id="name" required placeholder="أدخل اسمك الكامل">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني *</label>
+                            <input type="email" id="email" required placeholder="example@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">موضوع الرسالة *</label>
+                            <input type="text" id="subject" required placeholder="موضوع الرسالة">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">الرسالة *</label>
+                            <textarea id="message" rows="5" required placeholder="اكتب رسالتك هنا..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i> إرسال الرسالة
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#home" class="footer-logo">ع</a>
+                    <div>
+                        <h3>عبد الله العزري</h3>
+                        <p>طالب اقتصاد • متخصص في الاقتصاد الزراعي والبيئي</p>
+                        <p>جامعة السلطان قابوس</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>روابط سريعة</h4>
+                    <a href="#home"><i class="fas fa-home"></i> الرئيسية</a>
+                    <a href="#about"><i class="fas fa-user"></i> حولي</a>
+                    <a href="#education"><i class="fas fa-graduation-cap"></i> التعليم</a>
+                    <a href="#projects"><i class="fas fa-briefcase"></i> المشاريع</a>
+                    <a href="#contact"><i class="fas fa-envelope"></i> تواصل معي</a>
+                </div>
+                <div class="footer-links">
+                    <h4>المهارات الرئيسية</h4>
+                    <a href="#skills"><i class="fas fa-chart-bar"></i> تحليل البيانات</a>
+                    <a href="#skills"><i class="fas fa-leaf"></i> الاقتصاد البيئي</a>
+                    <a href="#skills"><i class="fas fa-seedling"></i> الاقتصاد الزراعي</a>
+                    <a href="#projects"><i class="fas fa-laptop-code"></i> تطوير الويب</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> عبد الله العزري. جميع الحقوق محفوظة.</p>
+                <p>صمم بعناية للتركيز على الوضوح والمهنية وسهولة الاستخدام</p>
+                <p>آخر تحديث: مايو 2024</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
