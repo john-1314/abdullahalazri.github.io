@@ -70,11 +70,20 @@ window.addEventListener('scroll', () => {
     // Add scrolled class for styling
     if (scrollTop > 50) {
         navbar.classList.add('scrolled');
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        // Check if dark theme is active
+        if (document.body.classList.contains('dark-theme')) {
+            navbar.style.background = 'rgba(1, 4, 3, 0.98)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        }
         navbar.style.boxShadow = 'var(--shadow-lg)';
     } else {
         navbar.classList.remove('scrolled');
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        if (document.body.classList.contains('dark-theme')) {
+            navbar.style.background = 'rgba(1, 4, 3, 0.95)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        }
         navbar.style.boxShadow = 'none';
     }
 
@@ -371,7 +380,7 @@ contactForm.addEventListener('submit', async (e) => {
 // Update Copyright Year
 document.getElementById('currentYear').textContent = new Date().getFullYear();
 
-// Theme Toggle (Optional - can be enabled if needed)
+// Theme Toggle with localStorage persistence
 const themeToggle = document.createElement('button');
 themeToggle.className = 'theme-toggle';
 themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
@@ -399,64 +408,444 @@ themeToggle.style.cssText = `
 
 document.body.appendChild(themeToggle);
 
-themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark-theme');
+// Function to update theme toggle icon and styles
+function updateThemeToggle(isDark) {
     const icon = themeToggle.querySelector('i');
-    if (document.body.classList.contains('dark-theme')) {
+    if (isDark) {
         icon.classList.remove('fa-moon');
         icon.classList.add('fa-sun');
-        themeToggle.style.color = '#fbbf24';
+        themeToggle.style.color = '#28cc7d';
+        themeToggle.style.background = 'rgba(1, 4, 3, 0.9)';
+        themeToggle.style.border = '1px solid rgba(40, 204, 125, 0.2)';
     } else {
         icon.classList.remove('fa-sun');
         icon.classList.add('fa-moon');
         themeToggle.style.color = 'var(--dark)';
+        themeToggle.style.background = 'var(--glass-bg)';
+        themeToggle.style.border = 'var(--glass-border)';
+    }
+}
+
+// Load saved theme preference
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    document.body.classList.add('dark-theme');
+    updateThemeToggle(true);
+}
+
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-theme');
+    const isDark = document.body.classList.contains('dark-theme');
+
+    // Save preference to localStorage
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+
+    // Update toggle appearance
+    updateThemeToggle(isDark);
+
+    // Update navbar background
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > 50) {
+        navbar.style.background = isDark ? 'rgba(1, 4, 3, 0.98)' : 'rgba(255, 255, 255, 0.98)';
+    } else {
+        navbar.style.background = isDark ? 'rgba(1, 4, 3, 0.95)' : 'rgba(255, 255, 255, 0.98)';
     }
 });
 
-// Add dark theme styles
+// Add dark theme styles with new color palette
 const darkThemeStyles = document.createElement('style');
 darkThemeStyles.textContent = `
+    /* Dark Mode Color Variables */
     .dark-theme {
-        --dark: #f9fafb;
-        --dark-light: #d1d5db;
-        --light: #111827;
-        --gray-light: #374151;
-        --glass-bg: rgba(17, 24, 39, 0.85);
-        --glass-border: 1px solid rgba(255, 255, 255, 0.1);
-        --primary-light: rgba(37, 99, 235, 0.2);
+        --color-dark: #010403;
+        --color-light: #ddf8e9;
+        --color-accent: #28cc7d;
+        --color-secondary: #15216f;
+        --color-highlight: #4921a6;
+        
+        --primary: #28cc7d;
+        --primary-dark: #20a865;
+        --primary-light: rgba(40, 204, 125, 0.2);
+        --secondary: #15216f;
+        --secondary-dark: #0f1850;
+        --accent: #4921a6;
+        --accent-light: rgba(73, 33, 166, 0.2);
+        --dark: #ddf8e9;
+        --dark-light: #b8e6cc;
+        --light: #010403;
+        --gray: #6b8c78;
+        --gray-light: #1a3d2a;
+        --white: #0a1a10;
+        
+        --glass-bg: rgba(1, 4, 3, 0.9);
+        --glass-border: 1px solid rgba(40, 204, 125, 0.2);
+        --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+        
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+        --shadow-md: 0 4px 12px -1px rgba(0, 0, 0, 0.4);
+        --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+        --shadow-xl: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+        --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
     }
     
     .dark-theme body {
-        background: linear-gradient(-45deg, #111827, #1f2937, #374151, #4b5563);
+        background: linear-gradient(to bottom, #010403 0%, #020810 20%, #0a0f2a 50%, #15082e 80%, #1a0a35 100%);
+        background-attachment: fixed;
+    }
+    
+    /* Starry Night Sky Effect */
+    .dark-theme body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+            /* Large bright stars */
+            radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+            radial-gradient(2px 2px at 40px 70px, #ddf8e9, transparent),
+            radial-gradient(2px 2px at 50px 160px, #ffffff, transparent),
+            radial-gradient(2px 2px at 90px 40px, #28cc7d, transparent),
+            radial-gradient(2px 2px at 130px 80px, #ffffff, transparent),
+            radial-gradient(2px 2px at 160px 120px, #ddf8e9, transparent),
+            /* Medium stars */
+            radial-gradient(1.5px 1.5px at 200px 50px, #ffffff, transparent),
+            radial-gradient(1.5px 1.5px at 250px 90px, #a78bfa, transparent),
+            radial-gradient(1.5px 1.5px at 300px 30px, #ffffff, transparent),
+            radial-gradient(1.5px 1.5px at 350px 140px, #28cc7d, transparent),
+            radial-gradient(1.5px 1.5px at 400px 60px, #ffffff, transparent),
+            radial-gradient(1.5px 1.5px at 450px 100px, #ddf8e9, transparent),
+            /* Small stars */
+            radial-gradient(1px 1px at 100px 200px, #ffffff, transparent),
+            radial-gradient(1px 1px at 180px 250px, #ffffff, transparent),
+            radial-gradient(1px 1px at 260px 180px, #ddf8e9, transparent),
+            radial-gradient(1px 1px at 340px 220px, #ffffff, transparent),
+            radial-gradient(1px 1px at 420px 280px, #28cc7d, transparent),
+            radial-gradient(1px 1px at 500px 150px, #ffffff, transparent),
+            /* More scattered stars */
+            radial-gradient(1px 1px at 60px 300px, #ffffff, transparent),
+            radial-gradient(1.5px 1.5px at 140px 350px, #a78bfa, transparent),
+            radial-gradient(1px 1px at 220px 320px, #ffffff, transparent),
+            radial-gradient(2px 2px at 300px 380px, #28cc7d, transparent),
+            radial-gradient(1px 1px at 380px 340px, #ddf8e9, transparent),
+            radial-gradient(1.5px 1.5px at 460px 400px, #ffffff, transparent),
+            /* Additional star layers */
+            radial-gradient(1px 1px at 520px 50px, #ffffff, transparent),
+            radial-gradient(1.5px 1.5px at 580px 120px, #ddf8e9, transparent),
+            radial-gradient(1px 1px at 640px 80px, #ffffff, transparent),
+            radial-gradient(2px 2px at 700px 160px, #28cc7d, transparent),
+            radial-gradient(1px 1px at 760px 40px, #ffffff, transparent),
+            radial-gradient(1px 1px at 820px 200px, #a78bfa, transparent),
+            /* Deep space glow */
+            radial-gradient(ellipse at 10% 20%, rgba(40, 204, 125, 0.08) 0%, transparent 40%),
+            radial-gradient(ellipse at 90% 10%, rgba(21, 33, 111, 0.12) 0%, transparent 45%),
+            radial-gradient(ellipse at 80% 80%, rgba(73, 33, 166, 0.1) 0%, transparent 40%),
+            radial-gradient(ellipse at 20% 90%, rgba(40, 204, 125, 0.06) 0%, transparent 35%);
+        background-repeat: repeat;
+        background-size: 550px 450px;
+        animation: twinkle 8s ease-in-out infinite alternate;
+        pointer-events: none;
+        z-index: -1;
+    }
+    
+    /* Stars twinkling animation */
+    @keyframes twinkle {
+        0% {
+            opacity: 0.8;
+        }
+        25% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.85;
+        }
+        75% {
+            opacity: 0.95;
+        }
+        100% {
+            opacity: 0.9;
+        }
+    }
+    
+    /* Add a second layer for more depth */
+    .dark-theme body::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+            radial-gradient(1.5px 1.5px at 80px 120px, rgba(255, 255, 255, 0.8), transparent),
+            radial-gradient(1px 1px at 160px 200px, rgba(221, 248, 233, 0.7), transparent),
+            radial-gradient(2px 2px at 240px 80px, rgba(40, 204, 125, 0.9), transparent),
+            radial-gradient(1px 1px at 320px 160px, rgba(255, 255, 255, 0.6), transparent),
+            radial-gradient(1.5px 1.5px at 400px 240px, rgba(167, 139, 250, 0.8), transparent),
+            radial-gradient(1px 1px at 480px 100px, rgba(255, 255, 255, 0.7), transparent),
+            radial-gradient(1px 1px at 560px 180px, rgba(221, 248, 233, 0.6), transparent),
+            radial-gradient(1.5px 1.5px at 640px 260px, rgba(40, 204, 125, 0.7), transparent);
+        background-repeat: repeat;
+        background-size: 700px 350px;
+        animation: twinkle 6s ease-in-out infinite alternate-reverse;
+        pointer-events: none;
+        z-index: -1;
     }
     
     .dark-theme .navbar {
-        background: rgba(17, 24, 39, 0.98);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(1, 4, 3, 0.95);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(40, 204, 125, 0.1);
+    }
+    
+    .dark-theme .navbar.scrolled {
+        background: rgba(1, 4, 3, 0.98);
     }
     
     .dark-theme .logo-text {
-        color: var(--dark);
+        color: #ddf8e9;
     }
     
     .dark-theme .nav-menu a {
-        color: var(--dark-light);
+        color: #b8e6cc;
+    }
+    
+    .dark-theme .nav-menu a:hover,
+    .dark-theme .nav-menu a.active {
+        color: #28cc7d;
+    }
+    
+    .dark-theme .hero-title {
+        color: #ddf8e9;
+    }
+    
+    .dark-theme .hero-subtitle {
+        background: linear-gradient(135deg, #ddf8e9, #28cc7d);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .dark-theme .hero-description {
+        color: #b8e6cc;
     }
     
     .dark-theme .btn-secondary {
-        background: rgba(255, 255, 255, 0.1);
-        color: var(--dark);
-        border-color: rgba(255, 255, 255, 0.2);
+        background: rgba(40, 204, 125, 0.1);
+        color: #ddf8e9;
+        border-color: rgba(40, 204, 125, 0.3);
     }
     
-    .dark-theme .contact-form,
-    .dark-theme .skill-category,
+    .dark-theme .btn-secondary:hover {
+        background: rgba(40, 204, 125, 0.2);
+        border-color: #28cc7d;
+    }
+    
+    .dark-theme .stat {
+        background: rgba(1, 4, 3, 0.8);
+        border: 1px solid rgba(40, 204, 125, 0.2);
+    }
+    
+    .dark-theme .stat h3 {
+        color: #28cc7d;
+    }
+    
+    .dark-theme .stat p {
+        color: #b8e6cc;
+    }
+    
+    .dark-theme .section-title {
+        background: linear-gradient(135deg, #28cc7d, #4921a6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+    
+    .dark-theme .section-label {
+        background: rgba(40, 204, 125, 0.15);
+        color: #28cc7d;
+    }
+    
+    .dark-theme .section-header p {
+        color: #b8e6cc;
+    }
+    
     .dark-theme .about-card,
     .dark-theme .project-card,
-    .dark-theme .timeline-item,
-    .dark-theme .language-card {
-        background: var(--glass-bg);
-        border: var(--glass-border);
+    .dark-theme .skill-category,
+    .dark-theme .language-card,
+    .dark-theme .timeline-item {
+        background: rgba(1, 4, 3, 0.8);
+        border: 1px solid rgba(40, 204, 125, 0.15);
+    }
+    
+    .dark-theme .about-card h3,
+    .dark-theme .project-title,
+    .dark-theme .timeline-content h3,
+    .dark-theme .category-header h3,
+    .dark-theme .language-card h3 {
+        color: #ddf8e9;
+    }
+    
+    .dark-theme .about-card p,
+    .dark-theme .project-description,
+    .dark-theme .timeline-content h4 {
+        color: #b8e6cc;
+    }
+    
+    .dark-theme .tag,
+    .dark-theme .skill-tag {
+        background: rgba(40, 204, 125, 0.15);
+        color: #28cc7d;
+    }
+    
+    .dark-theme .tag:hover,
+    .dark-theme .skill-tag:hover {
+        background: #28cc7d;
+        color: #010403;
+    }
+    
+    .dark-theme .project-tech span {
+        background: rgba(73, 33, 166, 0.2);
+        color: #a78bfa;
+    }
+    
+    .dark-theme .skill-level {
+        background: rgba(40, 204, 125, 0.1);
+    }
+    
+    .dark-theme .level-bar {
+        background: linear-gradient(90deg, #28cc7d, #4921a6);
+    }
+    
+    .dark-theme .contact-form {
+        background: rgba(1, 4, 3, 0.9);
+        border: 1px solid rgba(40, 204, 125, 0.15);
+    }
+    
+    .dark-theme .contact-info h3 {
+        color: #ddf8e9;
+    }
+    
+    .dark-theme .contact-info p {
+        color: #b8e6cc;
+    }
+    
+    .dark-theme .contact-item {
+        background: rgba(40, 204, 125, 0.05);
+        border: 1px solid rgba(40, 204, 125, 0.1);
+    }
+    
+    .dark-theme .contact-item h4 {
+        color: #ddf8e9;
+    }
+    
+    .dark-theme .contact-item p {
+        color: #b8e6cc;
+    }
+    
+    .dark-theme input,
+    .dark-theme textarea {
+        background: rgba(10, 26, 16, 0.8);
+        border-color: rgba(40, 204, 125, 0.2);
+        color: #ddf8e9;
+    }
+    
+    .dark-theme input:focus,
+    .dark-theme textarea:focus {
+        border-color: #28cc7d;
+        box-shadow: 0 0 0 3px rgba(40, 204, 125, 0.1);
+    }
+    
+    .dark-theme input::placeholder,
+    .dark-theme textarea::placeholder {
+        color: #6b8c78;
+    }
+    
+    .dark-theme label {
+        color: #b8e6cc;
+    }
+    
+    .dark-theme .footer {
+        background: rgba(1, 4, 3, 0.98);
+        border-top: 1px solid rgba(40, 204, 125, 0.1);
+    }
+    
+    .dark-theme .footer h3,
+    .dark-theme .footer h4 {
+        color: #ddf8e9;
+    }
+    
+    .dark-theme .footer p,
+    .dark-theme .footer a {
+        color: #b8e6cc;
+    }
+    
+    .dark-theme .footer a:hover {
+        color: #28cc7d;
+    }
+    
+    .dark-theme .social-link {
+        background: rgba(40, 204, 125, 0.1);
+        color: #28cc7d;
+        border-color: rgba(40, 204, 125, 0.2);
+    }
+    
+    .dark-theme .social-link:hover {
+        background: #28cc7d;
+        color: #010403;
+    }
+    
+    .dark-theme .back-to-top {
+        background: linear-gradient(135deg, #28cc7d, #4921a6);
+    }
+    
+    .dark-theme .lang-switch {
+        background: rgba(40, 204, 125, 0.15);
+        color: #28cc7d;
+    }
+    
+    .dark-theme .lang-switch:hover {
+        background: #28cc7d;
+        color: #010403;
+    }
+    
+    .dark-theme .hero-badge {
+        background: linear-gradient(135deg, rgba(40, 204, 125, 0.2), rgba(73, 33, 166, 0.2));
+        color: #28cc7d;
+        border-color: rgba(40, 204, 125, 0.3);
+    }
+    
+    .dark-theme .highlight::after {
+        background: linear-gradient(90deg, #28cc7d, #4921a6);
+    }
+    
+    .dark-theme .timeline::before {
+        background: linear-gradient(to bottom, #28cc7d, #4921a6);
+    }
+    
+    .dark-theme .timeline-item::before {
+        background: #010403;
+        border-color: #28cc7d;
+        box-shadow: 0 0 0 8px rgba(40, 204, 125, 0.1);
+    }
+    
+    .dark-theme .focus-points li {
+        border-bottom-color: rgba(40, 204, 125, 0.1);
+        color: #b8e6cc;
+    }
+    
+    .dark-theme .focus-points i {
+        color: #28cc7d;
+    }
+    
+    .dark-theme .language-level {
+        color: #28cc7d;
+    }
+    
+    .dark-theme .language-skills span {
+        background: rgba(40, 204, 125, 0.1);
+        color: #28cc7d;
     }
 `;
 document.head.appendChild(darkThemeStyles);
